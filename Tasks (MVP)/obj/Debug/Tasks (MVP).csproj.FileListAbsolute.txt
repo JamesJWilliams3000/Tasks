@@ -1,0 +1,20 @@
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\Tasks (MVP).exe.config
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\Tasks (MVP).exe
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\Tasks (MVP).pdb
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\EntityFramework.dll
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\EntityFramework.SqlServer.dll
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\EntityFramework.xml
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\EntityFramework.SqlServer.xml
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).csproj.AssemblyReference.cache
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks__MVP_.Properties.Resources.resources
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).csproj.GenerateResource.cache
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).csproj.CoreCompileInputs.cache
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).csproj.CopyComplete
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).exe
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks (MVP).pdb
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\System.Data.SQLite.dll
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\bin\Debug\System.Data.SQLite.xml
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks__MVP_.Form1.resources
+D:\Files\Projects\Programming\Tasks\Tasks (MVP)\obj\Debug\Tasks__MVP_.MainView.resources

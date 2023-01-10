@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JOBSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Pages" Type="Int32" Nullable="false" />
+    <Property Name="Bought_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Current_Music">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Album" Type="String" MaxLength="400" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Date">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date1" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DatesJobs" Relationship="Self.FK__DatesJobs__Date___33D4B598" FromRole="Dates" ToRole="DatesJobs" />
+    <NavigationProperty Name="DatesSubJobs" Relationship="Self.FK__DatesSubJ__Date___37A5467C" FromRole="Dates" ToRole="DatesSubJobs" />
+  </EntityType>
+  <EntityType Name="DatesJob">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Completed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Date" Relationship="Self.FK__DatesJobs__Date___33D4B598" FromRole="DatesJobs" ToRole="Dates" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__DatesJobs__Job_I__34C8D9D1" FromRole="DatesJobs" ToRole="Jobs" />
+  </EntityType>
+  <EntityType Name="DatesSubJob">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Total_Done" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Date" Relationship="Self.FK__DatesSubJ__Date___37A5467C" FromRole="DatesSubJobs" ToRole="Dates" />
+    <NavigationProperty Name="SubJob" Relationship="Self.FK__DatesSubJ__Job_I__38996AB5" FromRole="DatesSubJobs" ToRole="SubJobs" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Bought_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Console" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Est_Hours" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Category" Type="Int32" Nullable="false" />
+    <Property Name="Last_Finished" Type="DateTime" Precision="3" />
+    <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deadline" Type="DateTime" Precision="3" />
+    <Property Name="Frequency" Type="Int32" Nullable="false" />
+    <Property Name="Importance" Type="Int32" Nullable="false" />
+    <Property Name="Completed" Type="Boolean" Nullable="false" />
+    <Property Name="Job_Type" Type="Int32" Nullable="false" />
+    <Property Name="Est_Time" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DatesJobs" Relationship="Self.FK__DatesJobs__Job_I__34C8D9D1" FromRole="Jobs" ToRole="DatesJobs" />
+    <NavigationProperty Name="SubJob" Relationship="Self.FK__SubJobs__Job_ID__2C3393D0" FromRole="Jobs" ToRole="SubJobs" />
+  </EntityType>
+  <EntityType Name="Music">
+    <Key>
+      <PropertyRef Name="Music_ID" />
+    </Key>
+    <Property Name="Music_ID" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="400" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubJob">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Per_Day" Type="Double" Nullable="false" />
+    <Property Name="Total_Done" Type="Int32" Nullable="false" />
+    <Property Name="Page_Number" Type="Int32" />
+    <Property Name="Base_Count" Type="Int32" />
+    <NavigationProperty Name="DatesSubJobs" Relationship="Self.FK__DatesSubJ__Job_I__38996AB5" FromRole="SubJobs" ToRole="DatesSubJobs" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__SubJobs__Job_ID__2C3393D0" FromRole="SubJobs" ToRole="Jobs" />
+  </EntityType>
+  <EntityType Name="Tv_Movies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Boolean" Nullable="false" />
+    <Property Name="Episode_Count" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__DatesJobs__Date___33D4B598">
+    <End Role="Dates" Type="Self.Date" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DatesJobs" Type="Self.DatesJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dates">
+        <PropertyRef Name="Date_ID" />
+      </Principal>
+      <Dependent Role="DatesJobs">
+        <PropertyRef Name="Date_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatesSubJ__Date___37A5467C">
+    <End Role="Dates" Type="Self.Date" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DatesSubJobs" Type="Self.DatesSubJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dates">
+        <PropertyRef Name="Date_ID" />
+      </Principal>
+      <Dependent Role="DatesSubJobs">
+        <PropertyRef Name="Date_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatesJobs__Job_I__34C8D9D1">
+    <End Role="Jobs" Type="Self.Job" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DatesJobs" Type="Self.DatesJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="DatesJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatesSubJ__Job_I__38996AB5">
+    <End Role="SubJobs" Type="Self.SubJob" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DatesSubJobs" Type="Self.DatesSubJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="DatesSubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubJobs__Job_ID__2C3393D0">
+    <End Role="Jobs" Type="Self.Job" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubJobs" Type="Self.SubJob" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="SubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JOBSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Current_Music" EntityType="Self.Current_Music" />
+    <EntitySet Name="Dates" EntityType="Self.Date" />
+    <EntitySet Name="DatesJobs" EntityType="Self.DatesJob" />
+    <EntitySet Name="DatesSubJobs" EntityType="Self.DatesSubJob" />
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="Musics" EntityType="Self.Music" />
+    <EntitySet Name="SubJobs" EntityType="Self.SubJob" />
+    <EntitySet Name="Tv_Movies" EntityType="Self.Tv_Movies" />
+    <AssociationSet Name="FK__DatesJobs__Date___33D4B598" Association="Self.FK__DatesJobs__Date___33D4B598">
+      <End Role="Dates" EntitySet="Dates" />
+      <End Role="DatesJobs" EntitySet="DatesJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatesSubJ__Date___37A5467C" Association="Self.FK__DatesSubJ__Date___37A5467C">
+      <End Role="Dates" EntitySet="Dates" />
+      <End Role="DatesSubJobs" EntitySet="DatesSubJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatesJobs__Job_I__34C8D9D1" Association="Self.FK__DatesJobs__Job_I__34C8D9D1">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="DatesJobs" EntitySet="DatesJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatesSubJ__Job_I__38996AB5" Association="Self.FK__DatesSubJ__Job_I__38996AB5">
+      <End Role="SubJobs" EntitySet="SubJobs" />
+      <End Role="DatesSubJobs" EntitySet="DatesSubJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubJobs__Job_ID__2C3393D0" Association="Self.FK__SubJobs__Job_ID__2C3393D0">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="SubJobs" EntitySet="SubJobs" />
+    </AssociationSet>
+    <EntitySet Name="Folders" EntityType="JOBSModel.Folder" />
+  </EntityContainer>
+  <EntityType Name="Folder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="270" FixedLength="true" Unicode="true" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="270" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

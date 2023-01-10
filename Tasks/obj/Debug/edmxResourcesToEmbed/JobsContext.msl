@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JOBSModelStoreContainer" CdmEntityContainer="JOBSEntities1">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="JOBSModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Pages" ColumnName="Pages" />
+          <ScalarProperty Name="Bought_Date" ColumnName="Bought_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Current_Music">
+      <EntityTypeMapping TypeName="JOBSModel.Current_Music">
+        <MappingFragment StoreEntitySet="Current_Music">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Album" ColumnName="Album" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dates">
+      <EntityTypeMapping TypeName="JOBSModel.Date">
+        <MappingFragment StoreEntitySet="Dates">
+          <ScalarProperty Name="Date_ID" ColumnName="Date_ID" />
+          <ScalarProperty Name="Date1" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatesJobs">
+      <EntityTypeMapping TypeName="JOBSModel.DatesJob">
+        <MappingFragment StoreEntitySet="DatesJobs">
+          <ScalarProperty Name="Date_ID" ColumnName="Date_ID" />
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatesSubJobs">
+      <EntityTypeMapping TypeName="JOBSModel.DatesSubJob">
+        <MappingFragment StoreEntitySet="DatesSubJobs">
+          <ScalarProperty Name="Date_ID" ColumnName="Date_ID" />
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Total_Done" ColumnName="Total_Done" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="JOBSModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Bought_Date" ColumnName="Bought_Date" />
+          <ScalarProperty Name="Console" ColumnName="Console" />
+          <ScalarProperty Name="Est_Hours" ColumnName="Est_Hours" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="JOBSModel.Job">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Last_Finished" ColumnName="Last_Finished" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Importance" ColumnName="Importance" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="Job_Type" ColumnName="Job_Type" />
+          <ScalarProperty Name="Est_Time" ColumnName="Est_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musics">
+      <EntityTypeMapping TypeName="JOBSModel.Music">
+        <MappingFragment StoreEntitySet="Music">
+          <ScalarProperty Name="Music_ID" ColumnName="Music_ID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubJobs">
+      <EntityTypeMapping TypeName="JOBSModel.SubJob">
+        <MappingFragment StoreEntitySet="SubJobs">
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Per_Day" ColumnName="Per_Day" />
+          <ScalarProperty Name="Total_Done" ColumnName="Total_Done" />
+          <ScalarProperty Name="Page_Number" ColumnName="Page_Number" />
+          <ScalarProperty Name="Base_Count" ColumnName="Base_Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tv_Movies">
+      <EntityTypeMapping TypeName="JOBSModel.Tv_Movies">
+        <MappingFragment StoreEntitySet="Tv_Movies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Episode_Count" ColumnName="Episode_Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

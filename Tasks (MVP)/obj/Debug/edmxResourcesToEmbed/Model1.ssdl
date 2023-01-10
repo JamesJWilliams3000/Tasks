@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobsModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=C:\Users\shuka\Downloads\sqlite-tools-win32-x86-3360000\sqlite-tools-win32-x86-3360000\Tasks.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Current_Music">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Job_ID" Type="integer" Nullable="false" />
+    <Property Name="Count" Type="integer" Nullable="false" />
+    <Property Name="Album" Type="char" MaxLength="400" Nullable="false" />
+    <Property Name="ID" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dates">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="integer" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DatesJobs">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="integer" Nullable="false" />
+    <Property Name="Job_ID" Type="integer" Nullable="false" />
+    <Property Name="Completed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DatesSubJobs">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="integer" Nullable="false" />
+    <Property Name="Job_ID" Type="integer" Nullable="false" />
+    <Property Name="Total_Done" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Folders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="integer" Nullable="false" />
+    <Property Name="Name" Type="char" MaxLength="270" Nullable="false" />
+    <Property Name="Path" Type="char" MaxLength="270" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="integer" Nullable="false" />
+    <Property Name="Title" Type="char" MaxLength="200" Nullable="false" />
+    <Property Name="Bought_Date" Type="datetime" Nullable="false" />
+    <Property Name="Console" Type="char" MaxLength="200" Nullable="false" />
+    <Property Name="Est_Hours" Type="integer" Nullable="false" />
+    <Property Name="Type" Type="char" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="integer" Nullable="false" />
+    <Property Name="Name" Type="char" MaxLength="200" Nullable="false" />
+    <Property Name="Category" Type="integer" Nullable="false" />
+    <Property Name="Last_Finished" Type="datetime" />
+    <Property Name="Date_Added" Type="datetime" Nullable="false" />
+    <Property Name="Deadline" Type="datetime" />
+    <Property Name="Frequency" Type="integer" Nullable="false" />
+    <Property Name="Importance" Type="integer" Nullable="false" />
+    <Property Name="Completed" Type="bit" Nullable="false" />
+    <Property Name="Job_Type" Type="integer" Nullable="false" />
+    <Property Name="Est_Time" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Music">
+    <Key>
+      <PropertyRef Name="Music_ID" />
+    </Key>
+    <Property Name="Music_ID" Type="integer" Nullable="false" />
+    <Property Name="Path" Type="char" MaxLength="400" Nullable="false" />
+    <Property Name="Type" Type="char" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubJobs">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="integer" Nullable="false" />
+    <Property Name="Count" Type="integer" Nullable="false" />
+    <Property Name="Per_Day" Type="real" Nullable="false" />
+    <Property Name="Total_Done" Type="integer" Nullable="false" />
+    <Property Name="Page_Number" Type="integer" />
+    <Property Name="Base_Count" Type="integer" />
+  </EntityType>
+  <Association Name="FK_DatesJobs_0_0">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+    <End Role="DatesJobs" Type="Self.DatesJobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="DatesJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatesJobs_1_0">
+    <End Role="Dates" Type="Self.Dates" Multiplicity="1" />
+    <End Role="DatesJobs" Type="Self.DatesJobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dates">
+        <PropertyRef Name="Date_ID" />
+      </Principal>
+      <Dependent Role="DatesJobs">
+        <PropertyRef Name="Date_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatesSubJobs_0_0">
+    <End Role="SubJobs" Type="Self.SubJobs" Multiplicity="1" />
+    <End Role="DatesSubJobs" Type="Self.DatesSubJobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="DatesSubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatesSubJobs_1_0">
+    <End Role="Dates" Type="Self.Dates" Multiplicity="1" />
+    <End Role="DatesSubJobs" Type="Self.DatesSubJobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dates">
+        <PropertyRef Name="Date_ID" />
+      </Principal>
+      <Dependent Role="DatesSubJobs">
+        <PropertyRef Name="Date_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubJobs_0_0">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+    <End Role="SubJobs" Type="Self.SubJobs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="SubJobs">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobsModelStoreContainer">
+    <EntitySet Name="Current_Music" EntityType="Self.Current_Music" store:Type="Tables" />
+    <EntitySet Name="Dates" EntityType="Self.Dates" store:Type="Tables" />
+    <EntitySet Name="DatesJobs" EntityType="Self.DatesJobs" store:Type="Tables" />
+    <EntitySet Name="DatesSubJobs" EntityType="Self.DatesSubJobs" store:Type="Tables" />
+    <EntitySet Name="Folders" EntityType="Self.Folders" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" store:Type="Tables" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" store:Type="Tables" />
+    <EntitySet Name="Music" EntityType="Self.Music" store:Type="Tables" />
+    <EntitySet Name="SubJobs" EntityType="Self.SubJobs" store:Type="Tables" />
+    <AssociationSet Name="FK_DatesJobs_0_0" Association="Self.FK_DatesJobs_0_0">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="DatesJobs" EntitySet="DatesJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatesJobs_1_0" Association="Self.FK_DatesJobs_1_0">
+      <End Role="Dates" EntitySet="Dates" />
+      <End Role="DatesJobs" EntitySet="DatesJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatesSubJobs_0_0" Association="Self.FK_DatesSubJobs_0_0">
+      <End Role="SubJobs" EntitySet="SubJobs" />
+      <End Role="DatesSubJobs" EntitySet="DatesSubJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatesSubJobs_1_0" Association="Self.FK_DatesSubJobs_1_0">
+      <End Role="Dates" EntitySet="Dates" />
+      <End Role="DatesSubJobs" EntitySet="DatesSubJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubJobs_0_0" Association="Self.FK_SubJobs_0_0">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="SubJobs" EntitySet="SubJobs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

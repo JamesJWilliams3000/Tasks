@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6ca055490fd40e3b01205272cc0a875" Name="Diagram1">
+        <EntityTypeShape EntityType="JOBSModel.Book" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Current_Music" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Date" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.DatesJob" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.DatesSubJob" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Game" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Job" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Music" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.SubJob" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOBSModel.Tv_Movies" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="JOBSModel.FK__DatesJobs__Date___33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="JOBSModel.FK__DatesSubJ__Date___37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="JOBSModel.FK__DatesJobs__Job_I__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="JOBSModel.FK__DatesSubJ__Job_I__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="JOBSModel.FK__SubJobs__Job_ID__2C3393D0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="JOBSModel.Folder" Width="1.5" PointX="5.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
